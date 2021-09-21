@@ -13,7 +13,8 @@ module Faraday
 
     memoized(:ssl) { self.class.options_for(:ssl).new }
 
-    memoized(:builder_class) { RackBuilder }
+    rack_builder = RackBuilder
+    memoized(:builder_class) { rack_builder }
 
     def new_builder(block)
       builder_class.new(&block)
